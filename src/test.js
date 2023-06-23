@@ -1,15 +1,18 @@
-// 예제: 함수 작업
-// combine당신의 임무는 다음과 같은 특성을 가지고 이름을 지정해야 하는 새 함수를 작성하는 것입니다 .
+// transformToObjects()
+// 당신의 임무는 숫자 목록을 JavaScript 개체 목록으로 변환해야 하는 함수 에 누락된 논리를 추가하는 것입니다 .
 
-// 세 가지 입력 값 수락
+// val새로 반환된 배열에서 모든 객체는 키와 입력 배열의 숫자를 값으로 가져야 합니다 .
 
-// 세 가지 입력 값을 기반으로  새 값을 계산 합니다 . (a, b & c가 입력 값인 경우)a * b / c
+// 예를 들어 제공된 입력에 대해 [1, 2, 3]함수 transformToObjects([1, 2, 3])는 를 반환해야 합니다 [{val: 1}, {val: 2}, {val: 3}].
 
-// 계산 결과 반환
 
-function combine(a, b, c) {
-  return (a * b / c)
+function transformToObjects(numberArray) {
+  let object = []
+  for (let i = 0; i < numberArray.length; i++) {
+    let obj = { let: numberArray[i] };
+    object.push(obj);
+  }
+  console.log(object);
 }
-combine(1, 3, 3);
 
-// js 코딩
+transformToObjects([1, 2, 3]);
