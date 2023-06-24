@@ -1,6 +1,5 @@
 import React from 'react';
 import ExpensItem from './components/ExpenseItem';
-// don't change the Component name "App"
 export default function App() {
   const expenses = [
     { id: 'e1', title: 'test1', amount: 123, date: new Date(2021, 2, 28) },
