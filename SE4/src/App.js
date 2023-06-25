@@ -33,15 +33,15 @@ function App() {
         <p>Selected key React concepts you should know about</p>
       </header>
       <ul id="concepts">
-        {concepts.map((concept, index) => (
-          <li className="concept" key={index}>
+        {concepts.map((concept, index) => (1
+          < li className = "concept" key = { index } >
             <img src={concept.image} alt={concept.title} />
             <h2>{concept.title}</h2>
             <p>{concept.description}</p>
           </li>
         ))}
-      </ul>
-    </div>
+    </ul>
+    </div >
   );
 }
 
