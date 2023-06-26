@@ -1,5 +1,6 @@
 import React from 'react';
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 import './App.css';
 export default function App() {
   const expenses = [
@@ -11,7 +12,7 @@ export default function App() {
 
   return (
     <div>
-      <p>React 연습 중...</p>
+      <NewExpense />
       <Expenses item={expenses} />
     </div>
   );
