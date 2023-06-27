@@ -2,7 +2,6 @@ import React from 'react';
 import './NewExpense.css'
 import ExpenseForm from './ExpenseForm'
 const NexExpense = (props) => {
-  console.log(props);
   const onSaveExpenseDateHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
