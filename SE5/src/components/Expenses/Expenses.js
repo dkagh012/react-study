@@ -6,25 +6,13 @@ import React, { useState } from "react";
 
 function Expenses(props) {
   const [filteredYear, setFilterYear] = useState('2020');
-  const [filterInfoText, setFilterInfoText] = useState('2019, 2021 & 2022');
   const filterChangeHandler = selectedYear => {
     setFilterYear(selectedYear);
-    if (selectedYear === '2019') {
-      setFilterInfoText('2020, 2021 & 2022');
-    } else if (selectedYear === '2020') {
-      setFilterInfoText('2019, 2021 & 2022');
-    } else if (selectedYear === '2021') {
-      setFilterInfoText('2019, 2020 & 2022');
-    } else {
-      setFilterInfoText('2019, 2020 & 2021');
-    }
   };
-  console.log(filterInfoText);
   return (
     <div>
       <Card className="expenses">
         <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
-        <p>Data for years {filterInfoText} is hidden,</p>
         <ExpenseItem
           title={props.item[0].title}
           amount={props.item[0].amount}
