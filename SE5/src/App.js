@@ -9,10 +9,13 @@ export default function App() {
     { id: 'e3', title: 'test3', amount: 789, date: new Date(2021, 2, 28) },
     { id: 'e4', title: 'test4', amount: 101, date: new Date(2021, 2, 28) },
   ];
-
+  const addExpenseHandler = expense => {
+    console.log(expenses);
+    console.log(expense);
+  }
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses item={expenses} />
     </div>
   );
