@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './ExpenseDate.css';
-
+// 왼쪽 날짜
 const ExpenseDate = (props) => {
   const month = props.date.toLocaleString('en-US', { month: 'long' });
   const day = props.date.toLocaleString('en-US', { day: '2-digit' });
