@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function UserInput() {
+function UserInput(props) {
   const initialUserInput = {
     "current-savings": 10000,
     "yearly-contribution": 1200,
@@ -10,6 +10,8 @@ function UserInput() {
   const [userInput, setUserInput] = useState(initialUserInput);
   const submitHandler = (evnet) => {
     evnet.preventDefault();
+
+    props.onCalculate(userInput);
   };
   const resetHandler = () => {
     setUserInput(initialUserInput);
