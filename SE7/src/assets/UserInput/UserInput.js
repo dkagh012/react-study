@@ -1,9 +1,28 @@
+import { useState } from "react";
+
 function UserInput() {
+  const initialUserInput = {
+    "current-savings": 10000,
+    "yearly-contribution": 1200,
+    "expected-return": 7,
+    duration: 10,
+  };
+  const [userInput, setUserInput] = useState(initialUserInput);
   const submitHandler = (evnet) => {
     evnet.preventDefault();
   };
-  const resetHandler = () => {};
-  const inputChangeHandler = (input, value) => {};
+  const resetHandler = () => {
+    setUserInput(initialUserInput);
+  };
+  const inputChangeHandler = (input, value) => {
+    setUserInput((prevInput) => {
+      return {
+        ...prevInput,
+        // ...은 스프레드 연산자로써 이전 입력 상태 즉 10000의 라는 값을 복사하는것이다
+        [input]: value,
+      };
+    });
+  };
   return (
     <form onSubmit={submitHandler} className="form">
       <div className="input-group">
@@ -15,6 +34,7 @@ function UserInput() {
                 inputChangeHandler("current-savings", event.target.value)
               // 첫번쨰는 input 값 두번째는 value값
             }
+            value={userInput["current-savings"]}
             type="number"
             id="current-savings"
           />
@@ -27,6 +47,7 @@ function UserInput() {
                 inputChangeHandler("yearly-contribution", event.target.value)
               // 첫번쨰는 input 값 두번째는 value값
             }
+            value={userInput["yearly-contribution"]}
             type="number"
             id="yearly-contribution"
           />
@@ -43,6 +64,7 @@ function UserInput() {
                 inputChangeHandler("expected-return", event.target.value)
               // 첫번쨰는 input 값 두번째는 value값
             }
+            value={userInput["expected-return"]}
             type="number"
             id="expected-return"
           />
@@ -54,6 +76,7 @@ function UserInput() {
               (event) => inputChangeHandler("duration", event.target.value)
               // 첫번쨰는 input 값 두번째는 value값
             }
+            value={userInput["duration"]}
             type="number"
             id="duration"
           />
