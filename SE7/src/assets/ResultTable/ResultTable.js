@@ -1,3 +1,4 @@
+import classes from './ResultTable.module.css'
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -7,7 +8,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 
 function ResultTable(props) {
   return (
-    <table className="result">
+    <table className={classes.result}>
       <thead>
         <tr>
           <th>Year</th>
@@ -26,14 +27,14 @@ function ResultTable(props) {
             <td>
               {formatter.format(
                 yearData.savingsEndOfYear -
-                  props.initialInvestment -
-                  yearData.yearlyContribution * yearData.year
+                props.initialInvestment -
+                yearData.yearlyContribution * yearData.year
               )}
             </td>
             <td>
               {formatter.format(
                 props.initialInvestment +
-                  yearData.yearlyContribution * yearData.year
+                yearData.yearlyContribution * yearData.year
               )}
             </td>
           </tr>
