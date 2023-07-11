@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -10,6 +10,28 @@ const Login = (props) => {
   const [enteredPassword, setEnteredPassword] = useState('');
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
+
+  useEffect(() => {
+    console.log('EFFECT RUNNING');
+
+    return () => {
+      console.log('EFFECT CLEANUP');
+    };
+  }, []);
+
+  // useEffect(() => {
+  //   const identifier = setTimeout(() => {
+  //     console.log('Checking form validity!');
+  //     setFormIsValid(
+  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
+  //     );
+  //   }, 500);
+
+  //   return () => {
+  //     console.log('CLEANUP');
+  //     clearTimeout(identifier);
+  //   };
+  // }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
     setEnteredEmail(event.target.value);
@@ -23,7 +45,7 @@ const Login = (props) => {
     setEnteredPassword(event.target.value);
 
     setFormIsValid(
-      event.target.value.trim().length > 6 && enteredEmail.includes('@')
+      enteredEmail.includes('@') && event.target.value.trim().length > 6
     );
   };
 
@@ -44,8 +66,9 @@ const Login = (props) => {
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
         <div
-          className={`${classes.control} ${emailIsValid === false ? classes.invalid : ''
-            }`}
+          className={`${classes.control} ${
+            emailIsValid === false ? classes.invalid : ''
+          }`}
         >
           <label htmlFor="email">E-Mail</label>
           <input
@@ -57,8 +80,9 @@ const Login = (props) => {
           />
         </div>
         <div
-          className={`${classes.control} ${passwordIsValid === false ? classes.invalid : ''
-            }`}
+          className={`${classes.control} ${
+            passwordIsValid === false ? classes.invalid : ''
+          }`}
         >
           <label htmlFor="password">Password</label>
           <input
@@ -79,4 +103,4 @@ const Login = (props) => {
   );
 };
 
-export default Login; 
+export default Login;
