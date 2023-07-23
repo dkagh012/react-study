@@ -22,7 +22,7 @@ export const AuthContextProvider = (props) => {
     }
   }, []);
 
-  // 로그아웃 핸들러입니다. 로컬 스토리지에서 로그인 정보를 제거하고 로그인 상태를 false로 설정합니다.
+  // 로그아웃 핸들러입니다. 로컬 스토리지에서 로그인 정보를 제거하고 로그인 상태를 false로 설정합니다
   const logoutHandler = () => {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
